@@ -2,6 +2,7 @@
 var citytxt = $("#citytxt");
 var cityButton = $("#citybtn");
 var newCitiesArea = $(".cityList")
+var currentMoment = moment().format('L');
 var cityarray = []
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -51,11 +52,28 @@ function currentWeather(cityclicked) {
         console.log(temperature);
         console.log(humidity);
         console.log(windSpeed);
+        console.log(currentMoment);
 
+        var cityName$ = $("<h3>").text(cityName).append(" " + currentMoment);
+        var temperature$ = $("<p>").text("Temperature: " + temperature + "°F");
+        var humidity$ = $("<p>").text("Humidity: " + humidity + "%");
+        var windSpeed$ = $("<p>").text("Wind Speed: " + windSpeed + " MPH");
+
+        $("#currentWeather").empty();
+
+        $("#currentWeather").prepend(cityName$, temperature$, humidity$, windSpeed$);
 
     });
 
 }
+
+
+
+
+
+
+
+
 
 function displayWeather() {
     var cityclicked = $(this).attr("data-name");
