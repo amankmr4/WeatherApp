@@ -48,6 +48,8 @@ function currentWeather(cityclicked) {
         var humidity = response.main.humidity;
         var windSpeed = response.wind.speed
 
+        console.log(response);
+
         console.log(cityName);
         console.log(temperature);
         console.log(humidity);
@@ -67,17 +69,41 @@ function currentWeather(cityclicked) {
 
 }
 
+//Now lets write a function to get all the weekly condition
+function forecast5days(cityclicked) {
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityclicked + "&appid=4591a3428058e369dab3f9b2d3ba83e8";
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response);
+
+        var divcount = 1;
+        for (var i = 0; i < response.list.length; i++) {
+
+            var time = moment(response.list[i].dt_txt).format("HH");
+
+            if (time == 00) {
+
+                var cityName$ = $("<h5>").text(moment(response.list[i].dt_txt).format("l"));
+                var temperature$ = $("<p>").text("Temperature " + response.list[i].main.temp + "°F");
+                var humidity$ = $("<p>").text("Humidity " + response.list[i].main.humidity + "%");
+                $("#day" + divcount).prepend(cityName$, temperature$, humidity$);
+                divcount++;
+
+            }
+        }
+    })
+}
 
 
 
-
-
-
-
-
+//this function shows the weather
 function displayWeather() {
     var cityclicked = $(this).attr("data-name");
     currentWeather(cityclicked);
+    forecast5days(cityclicked);
+
 }
 
 // now lets run a onclick function on the buttons on the citylist
