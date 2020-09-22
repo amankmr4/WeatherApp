@@ -1,45 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Document</title>
 </head>
+
 <body>
 
-        <div class="container">
+    <div class="container">
         <div class="jumbotron text-center">
             <h1>Weather Dashboard</h1>
         </div>
-    
 
 
-    <div class="row">
-        <form class="col-4">
-            <section class="searchArea">
-            <input type="text" name="citytxt" id="citytxt">
-            <button id="citybtn"> search</button>
-            </section>
 
+        <div class="row">
+            <form class="col-4">
+                <section class="searchArea">
+                    <input type="text" name="citytxt" id="citytxt">
+                    <button id="citybtn"> search</button>
+                </section>
+            </form>
             <section class="cityList">
-                <button class="col-12"> city 1</button>
-                <button class="col-12">city 2</button>
+
 
             </section>
-
-        </form>
-
+        </div>
 
 
+        <div class="resultArea">
+            <div class="row">
+                <section id="currentWeather" class="col-7">
+
+
+                </section>
+            </div>
+
+            <div class="row">
+
+
+                <section id="future weather" class="col-7">
+
+                </section>
+            </div>
 
 
 
+        </div>
 
     </div>
-</div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js"></script>
-    
+
 </body>
+
 </html>
