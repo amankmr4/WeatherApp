@@ -18,7 +18,7 @@ function createButton() {
     newCitiesArea.empty();
     cityarray.forEach(function (city) {
         var newBtn = $("<button>").text(city);
-        newBtn.addClass("col-12 cityButton");
+        newBtn.addClass("cityButton btn btn-light");
         newBtn.attr("data-name", city);
 
         newCitiesArea.append(newBtn);
