@@ -3,13 +3,12 @@ var citytxt = $("#citytxt");
 var cityButton = $("#citybtn");
 var newCitiesArea = $(".cityList")
 var currentMoment = moment().format('L');
-var resultsBox = $(".resultArea")
 var cityarray = []
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //this function will store the weather data as a session storage
 function storeCities() {
-    localStorage.setItem("cities", JSON.stringify(cityarray));
+    sessionStorage.setItem("cities", JSON.stringify(cityarray));
 }
 
 
@@ -19,10 +18,10 @@ function createButton() {
     newCitiesArea.empty();
     cityarray.forEach(function (city) {
         var newBtn = $("<button>").text(city);
-        newBtn.addClass("cityButton btn btn-light");
+        newBtn.addClass("cityButton btn btn-link");
         newBtn.attr("data-name", city);
 
-        newCitiesArea.prepend(newBtn);
+        newCitiesArea.append(newBtn);
 
     }
     )
@@ -30,8 +29,7 @@ function createButton() {
 // this called the function to start on the home page
 
 function init() {
-    var storedCities = JSON.parse(localStorage.getItem("cities"));
-
+    var storedCities = JSON.parse(sessionStorage.getItem("cities"));
 
     if (storedCities !== null) {
         cityarray = storedCities;
@@ -44,8 +42,6 @@ function init() {
         currentWeather();
         forecast5days();
     }
-    $(resultsBox).hide();
-
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // lets focus on the city list buttons to call the API
@@ -102,8 +98,6 @@ function getUV(currentLat, currentLong) {
         var udID$ = $("<p>").text("UV Index: " + uvID);
         $("#currentWeather").append(udID$);
 
-        console.log(typeof (uvID));
-
 
     })
 
@@ -157,7 +151,6 @@ function displayWeather() {
     currentWeather(cityclicked);
     clearDiv();
     forecast5days(cityclicked);
-    $(resultsBox).show();
 
 }
 
@@ -175,13 +168,6 @@ init();
 // now lets run a onclick function on the buttons on the citylist
 $(document).on("click", ".cityButton", displayWeather);
 
-$(document).on("click", "#clearBtn", function (event) {
-    event.preventDefault();
-    $(".cityList").empty();
-    cityarray.splice(0, cityarray.length);
-    localStorage.clear();
-});
-
 
 //now lets try to create a onclick fucntion that will add that value to our buuton below
 $(cityButton).on("click", function (event) {
@@ -197,6 +183,5 @@ $(cityButton).on("click", function (event) {
         alert("please enter city name?");
     }
 });
-
 
 
