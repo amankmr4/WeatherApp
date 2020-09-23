@@ -175,6 +175,13 @@ init();
 // now lets run a onclick function on the buttons on the citylist
 $(document).on("click", ".cityButton", displayWeather);
 
+$(document).on("click", "#clearBtn", function (event) {
+    event.preventDefault();
+    $(".cityList").empty();
+    cityarray.splice(0, cityarray.length);
+    localStorage.clear();
+});
+
 
 //now lets try to create a onclick fucntion that will add that value to our buuton below
 $(cityButton).on("click", function (event) {
@@ -190,5 +197,6 @@ $(cityButton).on("click", function (event) {
         alert("please enter city name?");
     }
 });
+
 
 
