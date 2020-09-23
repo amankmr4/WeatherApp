@@ -9,7 +9,7 @@ var cityarray = []
 
 //this function will store the weather data as a session storage
 function storeCities() {
-    sessionStorage.setItem("cities", JSON.stringify(cityarray));
+    localStorage.setItem("cities", JSON.stringify(cityarray));
 }
 
 
@@ -30,7 +30,7 @@ function createButton() {
 // this called the function to start on the home page
 
 function init() {
-    var storedCities = JSON.parse(sessionStorage.getItem("cities"));
+    var storedCities = JSON.parse(localStorage.getItem("cities"));
 
 
     if (storedCities !== null) {
@@ -101,6 +101,8 @@ function getUV(currentLat, currentLong) {
         var uvID = response.value;
         var udID$ = $("<p>").text("UV Index: " + uvID);
         $("#currentWeather").append(udID$);
+
+        console.log(typeof (uvID));
 
 
     })
