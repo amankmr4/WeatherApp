@@ -20,59 +20,63 @@
 
 
         <div class="row">
-            <form class="col-4">
-                <section class="searchArea">
-                    <input type="text" name="citytxt" id="citytxt">
-                    <button id="citybtn"> search</button>
-                </section>
-            </form>
+            <div class="col-3">
+                <form>
+                    <section class="searchArea">
+                        <input type="text" name="citytxt" id="citytxt">
+                        <button id="citybtn"> search</button>
+                    </section>
+                </form>
 
-            <div class="cityList">
+                <div class="cityList">
+
+                </div>
+            </div>
+
+
+
+
+            <div class="resultArea col-7">
+                <div class="row">
+                    <!--here was a row class-->
+                    <section id="currentWeather" class="col-7">
+
+
+                    </section>
+                </div>
+
+
+
+                <div class="row justify-content-between futureWeather">
+                    <section id="futureWeather">
+                        <div id="day1">
+
+                        </div>
+
+                        <div id="day2">
+
+                        </div>
+
+                        <div id="day3">
+
+                        </div>
+
+                        <div id="day4">
+
+                        </div>
+
+                        <div id="day5">
+
+                        </div>
+
+                    </section>
+                </div>
+
+
 
             </div>
 
         </div>
-
-
-        <div class="resultArea">
-            <div class="row">
-                <section id="currentWeather" class="col-7">
-
-
-                </section>
-            </div>
-
-            <div class="row">
-
-
-                <section id="futureWeather" class="col-7">
-                    <div id="day1">
-
-                    </div>
-
-                    <div id="day2">
-
-                    </div>
-
-                    <div id="day3">
-
-                    </div>
-
-                    <div id="day4">
-
-                    </div>
-
-                    <div id="day5">
-
-                    </div>
-
-                </section>
-            </div>
-
-
-
-        </div>
-
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js"></script>

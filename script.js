@@ -6,19 +6,12 @@ var currentMoment = moment().format('L');
 var cityarray = []
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//now lets try to create a onclick fucntion that will add that value to our buuton below
-$(cityButton).on("click", function (event) {
-    event.preventDefault();
-    var citySeacrhtxt = $("input").val().trim();
+//this function will store the weather data as a session storage
+function storeCities() {
+    sessionStorage.setItem("cities", JSON.stringify(cityarray));
+}
 
-    if (citySeacrhtxt) {
-        cityarray.push(citySeacrhtxt);
-        createButton();
-        citytxt.val("");
-    } else {
-        alert("please enter city name?");
-    }
-});
+
 
 //lets create a function that will create new buttons
 function createButton() {
@@ -32,6 +25,23 @@ function createButton() {
 
     }
     )
+}
+// this called the function to start on the home page
+
+function init() {
+    var storedCities = JSON.parse(sessionStorage.getItem("cities"));
+
+    if (storedCities !== null) {
+        cityarray = storedCities;
+    }
+
+    createButton();
+
+    if (cityarray) {
+        var thisCity = cityarray[cityarray.length - 1]
+        currentWeather();
+        forecast5days();
+    }
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // lets focus on the city list buttons to call the API
@@ -144,5 +154,34 @@ function displayWeather() {
 
 }
 
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//this is where al our fucntions are ran 
+
+init();
+
 // now lets run a onclick function on the buttons on the citylist
 $(document).on("click", ".cityButton", displayWeather);
+
+
+//now lets try to create a onclick fucntion that will add that value to our buuton below
+$(cityButton).on("click", function (event) {
+    event.preventDefault();
+    var citySeacrhtxt = $("input").val().trim();
+
+    if (citySeacrhtxt) {
+        cityarray.push(citySeacrhtxt);
+        createButton();
+        storeCities();
+        citytxt.val("");
+    } else {
+        alert("please enter city name?");
+    }
+});
+
+
