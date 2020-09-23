@@ -52,6 +52,7 @@ function currentWeather(cityclicked) {
         var windSpeed = response.wind.speed
         var weatherIcon = response.weather[0].icon
 
+
         var cityName$ = $("<h3>").text(cityName).append(" " + currentMoment);
         var temperature$ = $("<p>").text("Temperature: " + temperature + "°F");
         var humidity$ = $("<p>").text("Humidity: " + humidity + "%");
@@ -82,7 +83,7 @@ function getUV(currentLat, currentLong) {
         url: queryRUL,
         method: "GET"
     }).then(function (response) {
-        console.log(response)
+
         var uvID = response.value;
         var udID$ = $("<p>").text("UV Index: " + uvID);
         $("#currentWeather").append(udID$);
@@ -111,15 +112,18 @@ function forecast5days(cityclicked) {
 
 
                 var cityName$ = $("<h5>").text(moment(response.list[i].dt_txt).format("l"));
+                var weatherIcon$ = $("<img>").attr("src", "https://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png");
                 var temperature$ = $("<p>").text("Temperature " + response.list[i].main.temp + "°F");
                 var humidity$ = $("<p>").text("Humidity " + response.list[i].main.humidity + "%");
-                $("#day" + divcount).prepend(cityName$, temperature$, humidity$);
+                $("#day" + divcount).prepend(cityName$, weatherIcon$, temperature$, humidity$);
                 divcount++;
 
             }
         }
     })
 }
+
+
 //this funxtion will clear our divs
 function clearDiv() {
     $("#day1").empty();
