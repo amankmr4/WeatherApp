@@ -3,6 +3,7 @@ var citytxt = $("#citytxt");
 var cityButton = $("#citybtn");
 var newCitiesArea = $(".cityList")
 var currentMoment = moment().format('L');
+var resultsBox = $(".resultArea")
 var cityarray = []
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -21,7 +22,7 @@ function createButton() {
         newBtn.addClass("cityButton btn btn-light");
         newBtn.attr("data-name", city);
 
-        newCitiesArea.append(newBtn);
+        newCitiesArea.prepend(newBtn);
 
     }
     )
@@ -30,6 +31,7 @@ function createButton() {
 
 function init() {
     var storedCities = JSON.parse(sessionStorage.getItem("cities"));
+
 
     if (storedCities !== null) {
         cityarray = storedCities;
@@ -42,6 +44,8 @@ function init() {
         currentWeather();
         forecast5days();
     }
+    $(resultsBox).hide();
+
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // lets focus on the city list buttons to call the API
@@ -151,6 +155,7 @@ function displayWeather() {
     currentWeather(cityclicked);
     clearDiv();
     forecast5days(cityclicked);
+    $(resultsBox).show();
 
 }
 
