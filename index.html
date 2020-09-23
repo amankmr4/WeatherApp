@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js"></script>
-    <title>Document</title>
+    <title>Weather Dashboard</title>
 </head>
 
-<body>
+<body style="background-color: #decfce;">
 
     <div class="container">
         <div class="jumbotron text-center">
@@ -20,15 +21,24 @@
 
 
         <div class="row">
-            <div class="col-3">
+            <div class="col-md-3" style="background-color: bisque;">
                 <form>
-                    <section class="searchArea">
-                        <input type="text" name="citytxt" id="citytxt">
-                        <button id="citybtn"> search</button>
-                    </section>
+                    <div class="form-group">
+                        <section class="searchArea">
+                            <h3>Search For A City</h3>
+                            <input type="text" name="citytxt" id="citytxt" class="form-control">
+                            <button id="citybtn" style="background-color: cornflowerblue;"><i
+                                    class="fas fa-search-location"></i>
+                            </button>
+                            <button id="clearBtn" style="background-color: cornflowerblue;"><i
+                                    class="fas fa-trash-alt"></i>
+                            </button>
+
+                        </section>
+                    </div>
                 </form>
 
-                <div class=" cityList btn-group-vertical">
+                <div class="cityList btn-group-vertical">
 
                 </div>
             </div>
@@ -36,9 +46,10 @@
 
 
 
-            <div class="resultArea col-8">
-                <div class="row">
-                    <!--here was a row class-->
+            <div class="resultArea col-md-9">
+                <!--here was a row class-->
+                <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                    <h3>Todays Forecast</h3>
                     <section id="currentWeather">
 
 
@@ -49,35 +60,37 @@
 
                 <div class="justify-content-between">
                     <section id="futureWeather">
-                        <h3>5 day forecast</h3>
-                        <div class=" bg-primary shadow">
-                            <div id="day1" class="col">
+                        <h3>5 day Forecast</h3>
+                        <div class="row">
+                            <div class=" bg-primary shadow m-3">
+                                <div id="day1" class="col">
 
-                            </div>
-                        </div>
-
-                        <div class=" bg-primary shadow">
-                            <div id="day2" class="col">
-
-                            </div>
-                        </div>
-
-                        <div class=" bg-primary shadow">
-                            <div id="day3" class="col">
-
-                            </div>
-                        </div>
-
-                        <div class=" bg-primary shadow">
-                            <div id="day4" class="col">
-
+                                </div>
                             </div>
 
-                        </div>
+                            <div class=" bg-primary shadow m-3">
+                                <div id="day2" class="col">
 
-                        <div class="bg-primary shadow">
-                            <div id="day5" class="col">
+                                </div>
+                            </div>
 
+                            <div class=" bg-primary shadow m-3">
+                                <div id="day3" class="col">
+
+                                </div>
+                            </div>
+
+                            <div class=" bg-primary shadow m-3">
+                                <div id="day4" class="col">
+
+                                </div>
+
+                            </div>
+
+                            <div class="bg-primary shadow m-3">
+                                <div id="day5" class="col">
+
+                                </div>
                             </div>
                         </div>
 
