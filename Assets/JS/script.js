@@ -5,14 +5,11 @@ var newCitiesArea = $(".cityList")
 var currentMoment = moment().format('L');
 var resultsBox = $(".resultArea")
 var cityarray = []
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //this function will store the weather data as a session storage
 function storeCities() {
     localStorage.setItem("cities", JSON.stringify(cityarray));
 }
-
-
 
 //lets create a function that will create new buttons
 function createButton() {
@@ -46,7 +43,7 @@ function init() {
 
     }
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // lets focus on the city list buttons to call the API
 function currentWeather(cityclicked) {
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityclicked + "&units=imperial&appid=4591a3428058e369dab3f9b2d3ba83e8";
@@ -194,11 +191,6 @@ function init() {
 }
 
 
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //this is where al our fucntions are ran 
 
 init();
