@@ -19,7 +19,7 @@ function createButton() {
     newCitiesArea.empty();
     cityarray.forEach(function (city) {
         var newBtn = $("<button>").text(city);
-        newBtn.addClass("cityButton btn btn-light");
+        newBtn.addClass("cityButton btn btn-light m-2");
         newBtn.attr("data-name", city);
 
         newCitiesArea.prepend(newBtn);
@@ -98,10 +98,25 @@ function getUV(currentLat, currentLong) {
     }).then(function (response) {
 
         var uvID = response.value;
-        var udID$ = $("<p>").text("UV Index: " + uvID);
-        $("#currentWeather").append(udID$);
 
-        console.log(typeof (uvID));
+        if (response.value <= 7) {
+            var udID$ = $("<button>").text("UV Index: " + uvID);
+            $(udID$).addClass("btn btn-success");
+
+        } else if
+
+            (response.value <= 9) {
+            var udID$ = $("<button>").text("UV Index: " + uvID);
+            $(udID$).addClass("btn btn-secondary");
+
+        } else {
+            var udID$ = $("<button>").text("UV Index: " + uvID);
+            $(udID$).addClass("btn btn-danger");
+        }
+
+
+
+        $("#currentWeather").append(udID$);
 
 
     })
@@ -196,7 +211,9 @@ $(document).on("click", "#clearBtn", function (event) {
     $(".cityList").empty();
     cityarray.splice(0, cityarray.length);
     localStorage.clear();
-    $(resultsBox).hide();
+    $("#currentWeather").hide();
+    $("#futureWeather").hide();
+
 });
 
 
