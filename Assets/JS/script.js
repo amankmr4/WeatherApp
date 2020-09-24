@@ -87,7 +87,7 @@ function currentWeather(cityclicked) {
 
 // this fucntion will get the UV index
 function getUV(currentLat, currentLong) {
-    var queryRUL = "http://api.openweathermap.org/data/2.5/uvi?lat=" + currentLat + "&lon=" + currentLong + "&appid=4591a3428058e369dab3f9b2d3ba83e8";
+    var queryRUL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + currentLat + "&lon=" + currentLong + "&appid=4591a3428058e369dab3f9b2d3ba83e8";
 
     $.ajax({
         url: queryRUL,
