@@ -4,7 +4,6 @@ This is a daily planner web page made from HTML,JQUERY and MOMENT.JS and also us
 ## Contents
 The web-site is composed of 2 pages, index.html ,script.js and. It also has images in the img folder with an image of the application
 
-[License](#License)
 ​
 ## User Story
 <p>
