@@ -1,6 +1,4 @@
-# TITLE
-<h1>Weather Web App</h1>
-
+# Weather Web App
 This is a daily planner web page made from HTML,JQUERY and MOMENT.JS and also using API's
 ​
 ## Contents
