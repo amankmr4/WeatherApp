@@ -47,10 +47,9 @@ https://github.com/amankmr4/WeatherApp.git
 
 <hr>
 ​
-## Authors
+## Author
 ​
-**Aman Kumar**
-aman.kmr4@yahoo.com
+* Aman Kumar
 
 ​
 ## Acknowledgments
